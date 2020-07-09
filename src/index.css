@@ -11,3 +11,148 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.inside-bg {
+ padding: 20px;
+ position:absolute;
+ top: 50%;
+ left:50%;
+ transform: translate(-50%,-50%);
+ color: white;
+};
+.react-parallax-content{
+}
+.react-parallax-bgimage{
+  filter: brightness(0.7) !important;
+}
+.navbar{
+  box-shadow: none !important;
+}
+@media (min-width:768px){
+  .cards{
+    display: grid;
+    grid-template-columns: repeat(3, 25%);
+    justify-content: center;
+    grid-gap: 2rem;
+    margin-top: 4rem;
+  }
+}
+
+.cardImg1{
+  max-width: 170px;
+  margin: auto;
+  padding-top: 15px;
+}
+.cardImg2{
+  max-width: 158px;
+  margin: auto;
+  padding-top: 7px;
+}
+.cardImg3{
+  max-width: 191px;
+  margin: auto;
+  padding-top: 19px;
+}
+
+.container-week{
+  margin-left: 1rem;
+    display: grid;
+    max-width: 342px;
+    margin-top: 4rem;
+    grid-template-columns: 45% 45%;
+    justify-content: space-around;
+    grid-gap: 1rem;
+  
+}
+.container-times{
+  display: grid;
+  
+}
+.container-weakly{
+  
+  display: grid;
+  grid-template-areas:
+  'dateS dateF '
+  'break .';
+  grid-gap: 13px;
+  margin: auto 17px;
+  align-items: center;
+
+}
+.hs-start{
+  grid-area: dateS;
+}
+.hs-finish{
+  grid-area: dateF;
+}
+.select-break{
+  grid-area: break;
+}
+.jobhscontainer{
+  display: grid ;
+  margin-bottom: 10px;
+}
+
+.md-form {
+  margin-bottom: .5rem;
+}
+
+
+.container-hs-butt{
+  display: grid;
+  max-width: 400px;
+  grid-template-columns: 200px 200px;
+  justify-content: center;
+  grid-gap: 3rem;
+  align-items: center;
+}
+
+.hs-jobb{
+margin-left: 3rem;
+}
+.hs-button{
+  max-width: 100px;
+}
+.button-button-hs{
+  padding:10px 15px;
+}
+
+.text-jobb{
+  margin-bottom: 0 !important;
+}
+
+@media (min-width:768px){
+  .container-times{
+    display: grid;
+    max-width: 800px;
+  }
+}
+
+.button-delete{
+    border: none;
+    border-radius: 12px;
+    background-color: #fe3646;
+    color: white;
+}
+.container-day-hs{
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  
+}
+.container-day-hs p {
+  margin-bottom: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
