@@ -1,14 +1,15 @@
 import React,{useState} from 'react'
-import { MDBBtn , MDBInput,MDBListGroup, MDBListGroupItem, MDBContainer, MDBBadge} from "mdbreact";
+import { MDBBtn , MDBInput,MDBListGroup,  MDBContainer} from "mdbreact";
 import JobHs from './JobHs';
 
 const shortid = require('shortid');
 
-const JobsHs = () => {
+const JobsHs = ({day, setAllJobHs, AllJobHs}) => {
     const [jobs, setJobs] = useState([])
     const [job, setJob] = useState({
         nameJob:'',
-        hsJob:''
+        hsJob:'',
+        day:''
     })
     const {nameJob, hsJob}= job;
 
@@ -22,18 +23,22 @@ const JobsHs = () => {
         e.preventDefault()
         if(nameJob.trim()===''||hsJob.trim()==='') return;
         job.id = shortid.generate();
+        job.day =day;
         setJobs([...jobs, job])
         setJob({
             nameJob:'',
             hsJob:''
         })
+        setAllJobHs([...AllJobHs, job ])
+
 
     }
     //eliminar jobs
 	const deleteJob = id =>{
 		const newJobs = jobs.filter(job => job.id !== id)
 		setJobs(newJobs); 
-		
+        const newjobs = AllJobHs.filter(job => job.id !== id)
+        setAllJobHs(newjobs)
 	}
     return (
         <>

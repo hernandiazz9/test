@@ -5,22 +5,10 @@ import TimeStartFinish from "./TimeStartFinish";
 
 
 
-const WeaklyTimes = ({dayhs, setHsDay, hsDay}) => {
+const WeaklyTimes = ({dayhs,setAllJobHs,AllJobHs, changeHoursDay, setStartFinishBreak, StartFinishBreak, setAllData}) => {
     const {day, hours} =dayhs;
-    console.log(dayhs);
-    
-    const dayAndHoras ={
-        Monday:0,
-        Tuesday:0,
-        Wednesday:0,
-        Thursday:0,
-        Friday:0,
-        Saturday:0,
-        Sunday:0
-    }
 
     const[collapseID, setCollapseID] = useState('')
-    const[hsAll, setHsAll] = useState('')
 
     const toggleCollapse = collapseiD => {
         setCollapseID( collapseIDD =>(
@@ -28,22 +16,9 @@ const WeaklyTimes = ({dayhs, setHsDay, hsDay}) => {
         ))
       }   
 
-      const hsTotal = hs =>{
-       setHsAll(hs)
-       //console.log(
-       // Object.keys(hsDay),'key',
-       // Object.values(hsDay),'value'
-       //);
-       //dayAndHoras.day=hs;
-       //console.log(dayAndHoras);
-       //
-       //const diaHaSumar = Object.keys(hsDay).find(element => element === day);
-       //console.log(diaHaSumar);
-       //setHsDay({
-       //    ...hsDay,
-       //    day:hs
-       //})
-     }
+    const hsTotal = hs =>{
+        changeHoursDay(day, hs)
+    }
      
      return (
         <>
@@ -51,20 +26,30 @@ const WeaklyTimes = ({dayhs, setHsDay, hsDay}) => {
                 color="primary"
                 onClick={()=>toggleCollapse("basicCollapse")}
                 style={{ marginBottom: 1+"rem" }}
-            >
-                
+            >   <div className="container-day-hs">
+                    {day}
+                    <p>
+                        {hours} Hs
+                    </p>
+                </div>
             </MDBBtn>
             <MDBCollapse 
                 id="basicCollapse" 
                 isOpen={collapseID}
-                
             >
                 <TimeStartFinish
-                        hsTotal={hsTotal} 
-                    />
-    
+                    setAllData={setAllData}
+                    hsTotal={hsTotal} 
+                    day={day}
+                    setStartFinishBreak={setStartFinishBreak}
+                    StartFinishBreak={StartFinishBreak}
+                />
                 <div className="jobhscontainer">
-                    <JobsHs />
+                    <JobsHs
+                        day={day}
+                        setAllJobHs={setAllJobHs}
+                        AllJobHs={AllJobHs}
+                    />
                 </div>  
                 <MDBBtn
                     block

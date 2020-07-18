@@ -29,10 +29,17 @@ code {
 .navbar{
   box-shadow: none !important;
 }
+.card{
+  display: grid;
+    justify-content: center;
+    grid-gap: 2rem;
+    margin-top: 4rem;
+}
 @media (min-width:768px){
   .cards{
     display: grid;
-    grid-template-columns: repeat(3, 25%);
+    grid-template-columns: repeat(2, 30%);
+    grid-template-rows: repeat(2, 50%);
     justify-content: center;
     grid-gap: 2rem;
     margin-top: 4rem;
@@ -50,6 +57,11 @@ code {
   padding-top: 7px;
 }
 .cardImg3{
+  max-width: 191px;
+  margin: auto;
+  padding-top: 19px;
+}
+.cardImg4{
   max-width: 191px;
   margin: auto;
   padding-top: 19px;
@@ -74,7 +86,8 @@ code {
   display: grid;
   grid-template-areas:
   'dateS dateF '
-  'break .';
+  'error error'
+  'break totalHs';
   grid-gap: 13px;
   margin: auto 17px;
   align-items: center;
@@ -86,8 +99,14 @@ code {
 .hs-finish{
   grid-area: dateF;
 }
+.error-hs{
+  grid-area: error;
+}
 .select-break{
   grid-area: break;
+}
+.totalHs{
+  grid-area: totalHs;
 }
 .jobhscontainer{
   display: grid ;
@@ -145,6 +164,124 @@ margin-left: 3rem;
   margin-bottom: 0;
 }
 
+.hs-W-Ending{
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-around;
+  align-items: center;
+}
+.hs-W-Ending span{
+  font-size: 21px;
+  font-weight: bold;
+}
+.error{
+  text-align: center;
+}
+
+
+.container-staff{
+  display: grid;
+  grid-template-areas:
+  'h1 h1'
+  'img1 img1'
+  'txt1 txt1'
+  'img2 img3 '
+  'txt2 txt3 '
+  'img4 img5 '
+  'txt4 txt5 '
+  'img6 img7 '
+  'txt6 txt7 '
+  'img8 img9 '
+  'txt8 txt9 '
+   ;
+   grid-gap: 2rem;
+}
+.container-staff img{
+  max-width: 200px;
+}
+@media (min-width:768px){
+  .container-staff{
+    display: grid;
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    grid-template-areas:
+    'h1 h1 h1 h1'
+    'img1 img1 txt1 txt1'
+    'img1 img1 txt1 txt1'
+    'img2 img3 img4 img5'
+    'txt2 txt3 txt4 txt5'
+    'img6 img7 img8 img9'
+    'txt6 txt7 txt8 txt9' ;
+
+  grid-template-rows: auto;
+  }
+}
+
+.container-staff h1{
+  grid-area: h1;
+  text-align: center;
+  margin: 0 auto;
+}
+.img1{
+  grid-area: img1;
+  max-width: 400px !important;
+    width: 400px !important;
+    height: 325px;
+  grid-column: 1/3;
+  grid-row: 2/3;
+}
+.txt1{
+  grid-area: txt1;
+}
+.img2{
+  grid-area: img2;
+}
+.txt2{
+  grid-area: txt2;
+}
+.img3{
+  grid-area: img3;
+}
+.txt3{
+  grid-area: txt3;
+}
+.img4{
+  grid-area: img4;
+}
+.txt4{
+  grid-area: txt4;
+}
+.img5{
+  grid-area: img5;
+}
+.txt5{
+  grid-area: txt5;
+}
+.img6{
+  grid-area: img6;
+}
+.txt6{
+  grid-area: txt6;
+}
+.img7{
+  grid-area: img7;
+}
+.txt7{
+  grid-area: txt7;
+}
+.img8{
+  grid-area: img8;
+}
+.txt8{
+  grid-area: txt8;
+}
+.img9{
+  grid-area: img9;
+}
+.txt9{
+  grid-area: txt9;
+}
 
 
 

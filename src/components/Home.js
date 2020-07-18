@@ -22,8 +22,9 @@ const Home = () => (
         <div className='inside-bg'>
             <div style={{fontSize:'2'+'rem', fontWeight:'bold'}}>  WELCOME TO NEVIS GROUP </div>
             <br/>
-            <br/>
-            <h1  style={{fontSize:'4'+'rem', fontWeight:'bold'}}>BUILD YOUR DREAM PLACE</h1>
+            
+            <h1  style={{fontSize:'4'+'rem', fontWeight:'bold'}}>BUILDING IN CENTRAL OTAGO SINCE 2007</h1>
+            <p>Queenstown based bespoke builders and project managers.  Specialising in commercial and residential builds, renovations and landscaping.  Friendly client focused team focusing on efficiency and value for money.</p>
         </div>
       </div>
     </Parallax>
