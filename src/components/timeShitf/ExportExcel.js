@@ -12,17 +12,123 @@ var pruebaVector =[
     {hsJob: "2", id: "Cpvdz61d8", nameJob: "a ver una  tu madre en tanga langa para la banda"},
 
 ]
-var creandoLiteral = pruebaVector.map(job =>(
-    `${job.nameJob}:  (${job.hsJob} hs)
-`
-))
-///
+
 
 
 const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
     console.log(StartFinishBreak);
     console.log(allData);
     console.log(AllJobHs);
+    if(StartFinishBreak.length===0|| allData.length===0 || AllJobHs.length===0)return null;
+
+    const mondayStartFinishBreak = StartFinishBreak.find( monday => {
+        return monday.day === 'Monday';
+    });
+    const tuesdayStartFinishBreak = StartFinishBreak.find( tuesday => {
+        return tuesday.day === 'Tuesday';
+    });
+    const wednesdayStartFinishBreak = StartFinishBreak.find( wednesday => {
+        return wednesday.day === 'Wednesday';
+    });
+    const thursdayStartFinishBreak = StartFinishBreak.find( thursday => {
+        return thursday.day === 'Thursday';
+    });
+    const fridayStartFinishBreak = StartFinishBreak.find( friday => {
+        return friday.day === 'Friday';
+    });
+    const saturdayStartFinishBreak = StartFinishBreak.find( saturday => {
+        return saturday.day === 'Saturday';
+    });
+    const sundayStartFinishBreak = StartFinishBreak.find( sunday => {
+        return sunday.day === 'Sunday';
+    });
+
+        const mondayDateHs = allData.find( monday => {
+            return monday.day === 'Monday';
+        });
+        const tuesdayDateHs = allData.find( tuesday => {
+            return tuesday.day === 'Tuesday';
+        });
+        const wednesdayDateHs = allData.find( wednesday => {
+            return wednesday.day === 'Wednesday';
+        });
+        const thursdayDateHs = allData.find( thursday => {
+            return thursday.day === 'Thursday';
+        });
+        const  fridayDateHs = allData.find( friday => {
+            return friday.day === 'Friday';
+        });
+        const saturdayDateHs = allData.find( saturday => {
+            return saturday.day === 'Saturday';
+        });
+        const sundayDateHs = allData.find( sunday => {
+            return sunday.day === 'Sunday';
+        });
+
+        
+        
+            const obteniendoLiteralMonday = AllJobHs.filter(monday =>{
+            return monday.day === 'Monday';
+            })
+        
+             const creandoLiteralMonday = obteniendoLiteralMonday.map(job =>(
+                `${job.nameJob}:  (${job.hsJob} hs)
+`
+            ))
+            const obteniendoLiteralTuesday = AllJobHs.filter(Tuesday =>{
+            return Tuesday.day === 'Tuesday';
+            })
+        
+             const creandoLiteralTuesday = obteniendoLiteralTuesday.map(job =>(
+                `${job.nameJob}:  (${job.hsJob} hs)
+`
+            ))
+            const obteniendoLiteralWednesday = AllJobHs.filter(Wednesday =>{
+            return Wednesday.day === 'Wednesday';
+            })
+        
+             const creandoLiteralWednesday = obteniendoLiteralWednesday.map(job =>(
+                `${job.nameJob}:  (${job.hsJob} hs)
+`
+            ))
+            const obteniendoLiteralThursday = AllJobHs.filter(Thursday =>{
+            return Thursday.day === 'Thursday';
+            })
+        
+             const creandoLiteralThursday = obteniendoLiteralThursday.map(job =>(
+                `${job.nameJob}:  (${job.hsJob} hs)
+`
+            ))
+            const obteniendoLiteralFriday = AllJobHs.filter(Friday =>{
+            return Friday.day === 'Friday';
+            })
+        
+             const creandoLiteralFriday = obteniendoLiteralFriday.map(job =>(
+                `${job.nameJob}:  (${job.hsJob} hs)
+`
+            ))
+            const obteniendoLiteralSaturday = AllJobHs.filter(Saturday =>{
+            return Saturday.day === 'Saturday';
+            })
+        
+             const creandoLiteralSaturday = obteniendoLiteralSaturday.map(job =>(
+                `${job.nameJob}:  (${job.hsJob} hs)
+`
+            ))
+            const obteniendoLiteralSunday = AllJobHs.filter(Sunday =>{
+            return Sunday.day === 'Sunday';
+            })
+        
+             const creandoLiteralSunday = obteniendoLiteralSunday.map(job =>(
+                `${job.nameJob}:  (${job.hsJob} hs)
+`
+            ))
+            
+        
+            
+        
+
+
     const multiDataSet2 = [
         {
             columns: [""],
@@ -53,7 +159,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                     {
-                        value: `22-Jun`, 
+                        value: `${mondayDateHs ? mondayDateHs.date :'-'}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -66,7 +172,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                     },
                     
                     {
-                        value: `${creandoLiteral}`,
+                        value: `${creandoLiteralMonday?creandoLiteralMonday:'-'}`,
                         style: {
                             border: {
                                 top:{ style: "thick", color: 'black'},
@@ -113,7 +219,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                     {
-                        value: `8.00 am`, 
+                        value: `${mondayStartFinishBreak.timeStart}`, 
                         
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
@@ -126,7 +232,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                     {
-                        value: `5.00 pm`, 
+                        value: `${mondayStartFinishBreak.timeFinish}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -138,7 +244,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                     {
-                        value: `30 mins`, 
+                        value: `${mondayStartFinishBreak.break}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -149,7 +255,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                             }
                         }
                     },
-                    {value: `8.5 hs`, 
+                    {value: `${mondayDateHs ? mondayDateHs.hours :'-'}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -175,7 +281,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         },
                     },
                     {
-                        value: `23-Jun`, 
+                        value: `${tuesdayDateHs ? tuesdayDateHs.date :'-'}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -187,7 +293,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                     {
-                        value: `${creandoLiteral}`, 
+                        value: `${creandoLiteralTuesday?creandoLiteralTuesday:'-'}`, 
                         style: {
                             border: {
                                 //top:{ style: "thick", color: 'black'},
@@ -232,7 +338,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                     {
-                        value: `8.00 am`, 
+                        value: `${tuesdayStartFinishBreak.timeStart}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -245,7 +351,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                     },
                 
                     {
-                        value: `5.00 pm`, 
+                        value: `${tuesdayStartFinishBreak.timeFinish}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -257,7 +363,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                     {
-                        value: `30 mins`, 
+                        value: `${tuesdayStartFinishBreak.break}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -268,7 +374,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                             }
                         }
                     },
-                    {value: `8.5 hs`, 
+                    {value: `${tuesdayDateHs ? tuesdayDateHs.hours :'-'}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -294,7 +400,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         },
                     },
                     {
-                        value: `24-Jun`, 
+                        value: `${wednesdayDateHs ? wednesdayDateHs.date :'-'}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -306,7 +412,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                     {
-                        value: `${creandoLiteral}`, 
+                        value: `${creandoLiteralWednesday?creandoLiteralWednesday:'-'}`, 
                         style: {
                             border: {
                                 //top:{ style: "thick", color: 'black'},
@@ -351,7 +457,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                     {
-                        value: `8.00 am`, 
+                        value: `${wednesdayStartFinishBreak.timeStart}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -364,7 +470,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                     },
                 
                     {
-                        value: `5.00 pm`, 
+                        value: `${wednesdayStartFinishBreak.timeFinish}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -376,7 +482,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                     {
-                        value: `30 mins`, 
+                        value: `${wednesdayStartFinishBreak.break}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -387,7 +493,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                             }
                         }
                     },
-                    {value: `8.5 hs`, 
+                    {value: `${wednesdayDateHs ? wednesdayDateHs.hours :'-'}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -413,7 +519,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         },
                     },
                     {
-                        value: `25-Jun`, 
+                        value: `${thursdayDateHs ? thursdayDateHs.date :'-'}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -425,7 +531,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                     {
-                        value: `${creandoLiteral}`, 
+                        value: `${creandoLiteralThursday?creandoLiteralThursday:'-'}`, 
                         style: {
                             border: {
                                 //top:{ style: "thick", color: 'black'},
@@ -470,7 +576,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                     {
-                        value: `8.00 am`, 
+                        value: `${thursdayStartFinishBreak.timeStart}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -483,7 +589,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                     },
                 
                     {
-                        value: `5.00 pm`, 
+                        value: `${thursdayStartFinishBreak.timeFinish}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -495,7 +601,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                     {
-                        value: `30 mins`, 
+                        value: `${thursdayStartFinishBreak.break}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -506,7 +612,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                             }
                         }
                     },
-                    {value: `8.5 hs`, 
+                    {value: `${thursdayDateHs ? thursdayDateHs.hours :'-'}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -532,7 +638,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         },
                     },
                     {
-                        value: `26-Jun`, 
+                        value: `${fridayDateHs? fridayDateHs.date :'-'}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -544,7 +650,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                     {
-                        value: `${creandoLiteral}`, 
+                        value: `${creandoLiteralFriday?creandoLiteralFriday:'-'}`, 
                         style: {
                             border: {
                                 //top:{ style: "thick", color: 'black'},
@@ -589,7 +695,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                     {
-                        value: `8.00 am`, 
+                        value: `${fridayStartFinishBreak.timeStart}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -602,7 +708,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                     },
                 
                     {
-                        value: `5.00 pm`, 
+                        value: `${fridayStartFinishBreak.timeFinish}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -614,7 +720,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                     {
-                        value: `30 mins`, 
+                        value: `${fridayStartFinishBreak.break}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -625,7 +731,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                             }
                         }
                     },
-                    {value: `8.5 hs`, 
+                    {value: `${fridayDateHs ? fridayDateHs.hours :'-'}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -651,7 +757,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         },
                     },
                     {
-                        value: `27-Jun`, 
+                        value: `${saturdayDateHs ? saturdayDateHs.date :'-'}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -663,7 +769,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                     {
-                        value: `${creandoLiteral}`, 
+                        value: `${creandoLiteralSaturday?creandoLiteralSaturday:'-'}`, 
                         style: {
                             border: {
                                 //top:{ style: "thick", color: 'black'},
@@ -708,7 +814,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                     {
-                        value: `8.00 am`, 
+                        value: `${saturdayStartFinishBreak.timeStart}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -721,7 +827,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                     },
                 
                     {
-                        value: `5.00 pm`, 
+                        value: `${saturdayStartFinishBreak.timeFinish}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -733,7 +839,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                     {
-                        value: `30 mins`, 
+                        value: `${saturdayStartFinishBreak.break}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -744,7 +850,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                             }
                         }
                     },
-                    {value: `8.5 hs`, 
+                    {value: `${saturdayDateHs ? saturdayDateHs.hours :'-'}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -770,7 +876,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         },
                     },
                     {
-                        value: `28-Jun`, 
+                        value: `${sundayDateHs ? sundayDateHs.date :'-'}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -782,7 +888,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                     {
-                        value: `${creandoLiteral}`, 
+                        value: `${creandoLiteralSunday?creandoLiteralSunday:'-'}`, 
                         style: {
                             border: {
                                 //top:{ style: "thick", color: 'black'},
@@ -827,7 +933,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                     {
-                        value: `8.00 am`, 
+                        value: `${sundayStartFinishBreak.timeStart}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -840,7 +946,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                     },
                 
                     {
-                        value: `5.00 pm`, 
+                        value: `${sundayStartFinishBreak.timeFinish}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -852,7 +958,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                     {
-                        value: `30 mins`, 
+                        value: `${sundayStartFinishBreak.break}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {
@@ -863,7 +969,7 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                             }
                         }
                     },
-                    {value: `8.5 hs`, 
+                    {value: `${sundayDateHs ? sundayDateHs.hours :'-'}`, 
                         style: {
                             alignment:{horizontal: 'center', vertical:'center'},
                             border: {

@@ -6,10 +6,7 @@ import {
   MDBNavbarToggler,
   MDBCollapse,
   MDBNavItem,
-  MDBFooter,
-  MDBNavLink,
-  MDBTooltip,
-  MDBIcon
+  MDBNavLink
 } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
 import  Logo  from '../assets/img/logo.png';
@@ -47,7 +44,7 @@ class App extends Component {
         <div className='flyout'>
           <MDBNavbar  color='grey darken-3' transparent dark  expand='md' fixed='top' scrolling>
             <MDBNavbarBrand href='/' className='py-0 font-weight-bold'>
-              <img style={{ height: '3.5rem', width: '15.5rem' }}
+              <img style={{ height: '3.5rem', width: '12.5rem' }}
                 src={Logo}
               />
               
@@ -71,7 +68,7 @@ class App extends Component {
                     onClick={this.closeCollapse('mainNavbarCollapse')}
                     to='/css'
                   >
-                    <strong>CSS</strong>
+                    <strong>Services</strong>
                   </MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
@@ -79,7 +76,7 @@ class App extends Component {
                     onClick={this.closeCollapse('mainNavbarCollapse')}
                     to='/components'
                   >
-                    <strong>Components</strong>
+                    <strong>Proyects</strong>
                   </MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
@@ -87,7 +84,7 @@ class App extends Component {
                     onClick={this.closeCollapse('mainNavbarCollapse')}
                     to='/advanced'
                   >
-                    <strong>Advanced</strong>
+                    <strong>Staff</strong>
                   </MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
