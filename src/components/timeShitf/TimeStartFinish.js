@@ -102,7 +102,9 @@ const TimeStartFinish = ({ hsTotal,day, setStartFinishBreak,StartFinishBreak ,se
                 } }
                 placeholder='break'
                 value={breakTime}
-            >   
+            >  
+                
+                <option selected value='0'>Break</option>
                 <option value='0'>No Break</option>
                 <option value="15">15 min</option>
                 <option value="30">30 min</option>

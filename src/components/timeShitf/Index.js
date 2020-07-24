@@ -16,6 +16,8 @@ const Index = () => {
 
     const [AllJobHs, setAllJobHs] = useState([])
 
+    const [name, setName] = useState('')
+
     const [StartFinishBreak, setStartFinishBreak] = useState([
         {
             day :'Monday',
@@ -125,9 +127,16 @@ const Index = () => {
 
     return (
         <>
+            <h1>Weekly timesheet</h1>
+            <MDBInput 
+                    label='Name?'
+                    type="text" 
+                    value={name}
+                    onChange={e=>setName(e.target.value.toUpperCase())}
+                /> 
             <div className="container-week">
                 <MDBInput 
-                    label='Weakly Start'
+                    label='Weekly Start'
                     size='sm'
                     onChange={e=>{setDateStart(e.target.value)
                                 setPaso(false)
@@ -137,7 +146,7 @@ const Index = () => {
                     value={dateStart}
                 />
                 <MDBInput 
-                    label='Weakly Finish'
+                    label='Weekly Finish'
                     type="date" 
                     value={dateFinish}
                     onChange={e=>{setDateFinish(e.target.value)
@@ -160,6 +169,7 @@ const Index = () => {
                                 setAllData={setAllData}
                                 setAllJobHs={setAllJobHs}
                                 AllJobHs={AllJobHs}
+                                
                             />
                         ))}
                     </>
@@ -178,8 +188,11 @@ const Index = () => {
             }
             <ExportExcel
                 allData={allData}
+                totalHours={totalHours}
                 AllJobHs={AllJobHs}
                 StartFinishBreak={StartFinishBreak}
+                name={name}
+                dateFinish={dateFinish}
             />
         </>    
     );

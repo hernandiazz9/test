@@ -27,7 +27,7 @@ code {
     
     padding: 20px !important;
     position:absolute !important;
-    top: 65% !important;
+    top: 75% !important;
     left:50% !important;
     transform: translate(-50%,-50%) !important;
     color: white !important;
@@ -50,12 +50,14 @@ code {
 
 
 .react-parallax-content{
+  filter: brightness(0.7) !important;
 }
 .react-parallax-bgimage{
   filter: brightness(0.7) !important;
 }
 .navbar{
   box-shadow: none !important;
+  background-color: #00000052;
 }
 .service{
   background-color: rgb(35, 31, 32);
@@ -336,7 +338,7 @@ margin-left: 3rem;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  max-height: 1200px;
+  max-height: 1300px;
   margin-top: 6rem;
 
 }
@@ -376,10 +378,9 @@ margin-left: 3rem;
 .entrada img {
   max-width: 100%;
 }
-
-
-
-
+.button-download{
+  text-align: center;
+}
 
 
 

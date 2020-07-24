@@ -21,15 +21,21 @@ function App() {
 
         <Project/>
         <Staff/>
-        
         <br/>
         <br/>
         <br/>
         <br/>
         <br/>
         <br/>
+       
 
         <Index />
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
       
     </div>
   );

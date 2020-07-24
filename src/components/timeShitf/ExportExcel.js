@@ -1,25 +1,14 @@
 import React from 'react';
 import ReactExport from 'react-export-excel';
+import { MDBBtn } from "mdbreact";
+
 
 const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
 
-var pruebaVector =[
-    {hsJob: "2", id: "MjpZk6Ky9", nameJob: "fuimos a tirar basra"},
-    
-    {hsJob: "4", id: "F7MkipIlO", nameJob: "romper el  asd  asd as da da sd as"},
-    
-    {hsJob: "2", id: "Cpvdz61d8", nameJob: "a ver una  tu madre en tanga langa para la banda"},
 
-]
-
-
-
-const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
-    console.log(StartFinishBreak);
-    console.log(allData);
-    console.log(AllJobHs);
-    if(StartFinishBreak.length===0|| allData.length===0 || AllJobHs.length===0)return null;
+const ExportExcel = ({StartFinishBreak, allData, AllJobHs, totalHours, name, dateFinish}) => {
+    if(StartFinishBreak.length===0|| allData.length===0 || AllJobHs.length===0 || name==='')return null;
 
     const mondayStartFinishBreak = StartFinishBreak.find( monday => {
         return monday.day === 'Monday';
@@ -72,14 +61,16 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
             })
         
              const creandoLiteralMonday = obteniendoLiteralMonday.map(job =>(
-                `${job.nameJob}:  (${job.hsJob} hs)
-`
+                job.nameJob + '\n(' + job.hsJob + 'hs'+ ')'+'\n'
+                //`${job.nameJob}:  (${job.hsJob} hs)
+//`
             ))
             const obteniendoLiteralTuesday = AllJobHs.filter(Tuesday =>{
             return Tuesday.day === 'Tuesday';
             })
         
              const creandoLiteralTuesday = obteniendoLiteralTuesday.map(job =>(
+                
                 `${job.nameJob}:  (${job.hsJob} hs)
 `
             ))
@@ -133,16 +124,16 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
         {
             columns: [""],
             data: [
-                [{value:'Nevis Group LTD', style:{font: {sz: "18", bold: true}}}],
+                [{value:'Nevis Group LTD', style:{font: {sz: "22", bold: true}}}],
                 [{ySteps: 2}],
-                [{value:'Name'},{ xSteps: 1},{value:'Ramiro Diaz Daives'}],
+                [{value:'Name:', style:{font: {sz: "16", bold: true}}},{ xSteps: 1},{value:`${name}`, style:{font: {sz: "14", bold: true}}}],
                 [{ySteps:2}],
-                [{value:'Week Ending'},{ xSteps: 1},{value:'26/05/20'}],
+                [{value:'Week Ending:', style:{font: {sz: "16", bold: true}}},{ xSteps: 1},{value:`${dateFinish}`}],
                 
             ]
         },
         {
-            ySteps: 3, //will put space of 5 rows,
+            ySteps: 2, //will put space of 2 rows,
             columns: ["Day", "Date", "Job",'','','','Start','Finish','Breaks','Total Hs'],
             data: [
                 [
@@ -172,12 +163,11 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                     },
                     
                     {
-                        value: `${creandoLiteralMonday?creandoLiteralMonday:'-'}`,
+                        value:`${creandoLiteralMonday}`,
                         style: {
                             border: {
                                 top:{ style: "thick", color: 'black'},
                                 left:{ style: "thick", color: 'black'},
-                                //right:{ style: "thick", color: 'black'},
                                 bottom:{ style: "thick", color: 'black'}
                             },
                             alignment:{horizontal: 'bottom', vertical:'bottom'},
@@ -981,6 +971,20 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
                         }
                     },
                 ],
+                [
+                    {xSteps:1},{xSteps:1},{xSteps:1},{xSteps:1},{xSteps:1},{xSteps:1},{xSteps:1},{xSteps:1},{xSteps:1},
+                    {value: `${totalHours}`, 
+                        style: {
+                            alignment:{horizontal: 'center', vertical:'center'},
+                            border: {
+                                left:{ style: "thick", color: 'black'},
+                                right:{ style: "thick", color: 'black'},
+                                bottom:{ style: "thick", color: 'black'}
+                            }
+                        }
+                    },
+
+                ]
                 
             ]
         }
@@ -988,8 +992,13 @@ const ExportExcel = ({StartFinishBreak, allData, AllJobHs}) => {
     return (
         <div>
             <ExcelFile 
+                    filename={`${name} week ending ${dateFinish}`}
                      //hideElement={false} true para descargar cuando direccionamos
-                    element={<button>Download Data With Styles</button>}
+                    element={
+                        <div className='button-download'>
+                            <MDBBtn>Download TimeSheet</MDBBtn>
+                        </div>
+                    }
             >
                     <ExcelSheet dataSet={multiDataSet2} name="Organizationn"/>
             </ExcelFile>
